@@ -1,4 +1,4 @@
-#include <iostream>
+```#include <iostream>
 #include <cstring>
 #include <unistd.h>
 #include <sys/socket.h>
@@ -40,6 +40,9 @@ int main() {
     // Accept connections in loop
     while(true) {
         int client_fd = accept(server_fd, NULL, NULL);
+        char buffer[1024] = {0};
+        read(client_fd, buffer, 1024); 
+        
         if (client_fd < 0) continue;
         
         // Simple HTTP response
@@ -53,4 +56,4 @@ int main() {
     }
     
     return 0;
-}
+}```
